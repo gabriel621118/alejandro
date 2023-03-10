@@ -1,0 +1,114 @@
+.cursor {
+    cursor: pointer;
+}
+
+.active{
+    color: #eccf7b !important;
+}
+
+.no-active{
+    color: whitesmoke ;
+}
+
+.btn-home:hover {
+    background-color: #DAE1E9;
+}
+
+
+.activo{
+    color: #005D9B;
+    background-color : #ffe762 !important;
+}
+
+//Nabvar al centro
+.contenedor {
+    width: auto !important;
+}
+.navMy{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.back{
+    background-color:#007ACC ;
+}
+
+.head{
+    background-color:#005d9b ;
+}
+.head a{
+    color: white;
+}
+
+//funciones nabvar
+ 
+//Menu deslizante
+.menuResp {
+    //  display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling:touch
+  
+  }
+  
+  .menuResp::-webkit-scrollbar {
+      display: none; 
+  }
+
+//prendas dezlizantes horizontalmente 
+.products{
+    // display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     max-height: 25vh;    
+     min-width: 500px;
+     width: auto;
+     
+ }
+ 
+ .productsMenu{
+    // display: flex;
+     flex-wrap: wrap;
+     flex-direction: column;
+     max-height: 12vh;   
+     width: auto;
+     white-space: nowrap;
+     
+ }
+ 
+ .button-product{
+     margin-right: 1%;
+     margin-top: 1%;
+     font-size: 0.8rem;
+     height: 4.8vh;
+    // width: 100%;
+ }
+
+@media screen and (max-width: 576px) {
+    
+    .padding-media {
+        padding-top: 10px;
+    }
+}
+    
+@media screen and (min-width:576px) and (max-width: 1400px)  {
+    
+    .padding-media {
+        padding-top: 10px;
+    }
+}
+
+.navbar-shadow{
+    -webkit-box-shadow: 0px 5px 4px 1px rgba(0,0,0,0.5); 
+    box-shadow: 0px 5px 4px 1px rgba(0,0,0,0.5);
+}
+
+.rectangulo {
+    width: 25px; 
+    height: 5px; 
+    border-radius: 20%;
+    background: #EDBF2F;
+}
+
