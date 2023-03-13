@@ -1,0 +1,48 @@
+.total {
+    font-size: 16px;
+    font-weight: 1000;
+}
+
+.carta {
+    flex: 1 1 auto;
+}
+
+.estatico {
+    position: fixed;
+    height: 10rem;
+}
+
+.relativa {
+    position: relative;
+}
+
+.cliente {
+    font-size: 16px;
+    font-weight: 1000;
+    color: black;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+}
+
+.perfect-scrollbar-example {
+    position: relative;
+    max-height: 50vh;
+}
+
+.seleccionado {
+    background-color: #10b7582f;
+}
+
+//botnones responsive
+.b-responsive {
+    overflow-x: auto;
+}
+
+cont {
+    min-width: 500px;
+}

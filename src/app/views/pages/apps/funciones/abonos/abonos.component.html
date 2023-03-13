@@ -1,0 +1,112 @@
+<div class="row justify-content-center align-items-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Agregar abono</h6>
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nota</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Nota">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Abono</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Cantidad">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2" (click)="agregar()">Aceptar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="table">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-fluid d-flex justify-content-between">
+                        <div class="col-lg-12 pl-0">
+                            <a routerLink="." class="noble-ui-logo d-block mt-3 logo-light">Noble<span>UI</span></a>
+                            <p class="mt-1 mb-1"><b>NobleUI Themes</b></p>
+                            <p>108, Great Russell St,<br>London, WC1B 3NA.</p>
+                        </div>
+                    </div>
+                    <div class="container-fluid mt-5 w-100">
+                        <div class="row">
+                            <div class="col-md-12 ml-auto">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Pantalon</td>
+                                                <td class="text-right">$ 14,900.00</td>
+                                                <td class="text-right">
+                                                    <button style="margin-right: 2%;" type="button" class="btn btn-primary btn-icon">
+                                                    <i class="feather mdi mdi-border-color"></i>
+                                                  </button>
+                                                    <button type="button" class="btn btn-danger btn-icon">
+                                                    <i class="feather mdi mdi-backspace"></i>
+                                                  </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Camiseta</td>
+                                                <td class="text-right">$ 1,788.00</td>
+                                                <td class="text-right">
+                                                    <button style="margin-right: 2%;" type="button" class="btn btn-primary btn-icon">
+                                                    <i class="feather mdi mdi-border-color"></i>
+                                                  </button>
+                                                    <button type="button" class="btn btn-danger btn-icon">
+                                                    <i class="feather mdi mdi-backspace"></i>
+                                                  </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="text-bold-800 total">Total</td>
+                                                <td></td>
+                                                <td class="text-right total"> $ 1,788.00</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid w-100">
+                        <a routerLink="." class="btn btn-outline-danger float-right mt-4 btn-icon-text"><i class="feather mdi mdi-close-box-outline btn-icon-prepend"></i> Cancelar nota</a>
+                        <a routerLink="." style="margin-right: 2%;" class="btn btn-primary float-right mt-4 ml-2 btn-icon-text"><i class="feather mdi mdi-checkbox-marked-outline btn-icon-prepend"></i> Cerrar nota</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Abonado</td>
+                                <td class="text-right">$ 14,900.00</td>
+                            </tr>
+                            <tr>
+                                <td class="text-bold-800">Total</td>
+                                <td class="text-bold-800 text-right"> $ 16,688.00</td>
+                            </tr>
+                            <tr>
+                                <td>Faltante</td>
+                                <td class="text-danger text-right">(-) $ 4,688.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

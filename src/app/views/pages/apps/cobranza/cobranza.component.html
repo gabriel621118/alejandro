@@ -1,0 +1,67 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">Sin cobrar</h6>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-4">
+                <ng-select [items]="people" [multiple]=true [closeOnSelect]="false" [searchable]="false" bindLabel="name" placeholder="Seleccionar cliente" [(ngModel)]="selectedPeople">
+                </ng-select>
+            </div>
+            <div class="col-md-2">
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-6">
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <button class="btn btn-block  btn-primary"> Deudas mas altas </button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-block btn-primary"> Con mas notas  </button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-block btn-primary"> Mas antiguas  </button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-block btn-primary"> Mas recientes  </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="container-fluid mt-5 d-flex justify-content-center w-100">
+    <div class="table-responsive w-100">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Notas sin cobrar</h6>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nota</th>
+                            <th>Cliente</th>
+                            <th class="text-right">Prenda</th>
+                            <th class="text-right">Fecha de recoleccion</th>
+                            <th>Pagado</th>
+                            <th>-</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-right">
+                            <td class="text-left">8864</td>
+                            <td class="text-left">Sergio Gutierrez</td>
+                            <td>Pantalon</td>
+                            <td>12/12/2021</td>
+                            <td>Sin pagar</td>
+                            <td>
+                                <button class="btn btn-primary">
+                                    ver nota
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

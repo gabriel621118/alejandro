@@ -1,0 +1,125 @@
+<div class="card ">
+    <div class="card-body">
+        <div class="row justify-content-center align-items-center text-center mb-3">
+            <div class="col-12">
+                <button type="button" class="btn btn-secondary btn-sm BCentral">Gastos</button>
+                <button type="button" class="btn btn-secondary btn-sm BCentral">Notas</button>
+                <button type="button" class="btn btn-secondary btn-sm BCentral">Corte del dia</button>
+                <button type="button" class="btn btn-secondary btn-sm BCentral">Graficas</button>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center text-center">
+            <div class="col-12">
+                <button type="button" class="btn btn-secondary btn-sm BCentral">Configuraciones</button>
+                <button type="button" class="btn btn-secondary btn-sm BCentral">Estatus</button>
+                <button type="button" class="btn btn-secondary btn-sm BCentral">Cliente</button>
+                <button type="button" class="btn btn-secondary btn-sm BCentral">Finanzas</button>
+                <!--Prendas pendientes, finanzas?-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row ">
+    <div class="col-md-12">
+        <div class="container">
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/gastos']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Gastos</h4>
+                            <i data-feather="dollar-sign" appFeatherIcon class="text-primary icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/abonos']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Abonos</h4>
+                            <i data-feather="book-open" appFeatherIcon class="text-success icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card">
+                    <div class="card  btn-home" [routerLink]="['/corte']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Corte de caja</h4>
+                            <i data-feather="trello" appFeatherIcon class="text-warning icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/menu']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Crear</h4>
+                            <i data-feather="plus-square" appFeatherIcon class="text-primary icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/notas']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Notas</h4>
+                            <i data-feather="clipboard" appFeatherIcon class="text-primary icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/notas-pendientes']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Prendas pendientes</h4>
+                            <i data-feather="edit" appFeatherIcon class="text-success icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card">
+                    <div class="card  btn-home" [routerLink]="['/status']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Status</h4>
+                            <i data-feather="radio" appFeatherIcon class="text-warning icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card">
+                    <div class="card  btn-home" [routerLink]="['/terminar']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Terminar</h4>
+                            <i data-feather="aperture" appFeatherIcon class="text-primary icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/administrador']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Graficas</h4>
+                            <i data-feather="pie-chart" appFeatherIcon class="text-primary icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/cobranza']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Cuentas</h4>
+                            <i data-feather="edit" appFeatherIcon class="text-primary icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

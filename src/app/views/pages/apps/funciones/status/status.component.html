@@ -1,0 +1,138 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">Status</h6>
+        <div class="row justify-content-center align-items-center text-center">
+            <div class="col-md-12">
+                <button type="button" style="margin-right: 3%;" (click)="buscar()" class="btn btn-primary">Entregado</button>
+                <button type="button" style="margin-right: 3%;" (click)="buscar1()" class="btn btn-primary">Terminado</button>
+                <button type="button" style="margin-right: 3%;" (click)="buscar2()" class="btn btn-primary">Pendiente</button>
+            </div>
+        </div>
+        <div class="row justify-content-start">
+            <div class="col-md-12">
+                <a (click)="Filtrar()"><i data-feather="list" appFeatherIcon></i> Filtrar</a>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3" *ngIf="filtrar">
+            <div class="col-md-12">
+
+                <ng-select [items]="people" [multiple]=true [closeOnSelect]="false" [searchable]="false" bindLabel="name" placeholder="Seleccionar chofer" [(ngModel)]="selectedPeople">
+                </ng-select>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="container-fluid mt-5 d-flex justify-content-center w-100" *ngIf="table">
+    <div class="table-responsive w-100">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Entregadas (servicio finalizado) </h6>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nota</th>
+                            <th>Cliente</th>
+                            <th class="text-right">Prenda</th>
+                            <th class="text-right">Fecha de recoleccion</th>
+                            <th>Observaciones</th>
+                            <th>Pagado</th>
+                            <th>-</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-right">
+                            <td class="text-left">8864</td>
+                            <td class="text-left">Sergio Gutierrez</td>
+                            <td>Pantalon</td>
+                            <td>12/12/2021</td>
+                            <td>pantalon se quedo por x razon</td>
+                            <td>Sin pagar</td>
+                            <td>
+                                <button (click)="verNota()" class="btn btn-primary">
+                                    ver nota
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-5 d-flex justify-content-center w-100" *ngIf="table2">
+    <div class="table-responsive w-100">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Terminadas - pendientes de entregar </h6>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nota</th>
+                            <th>Cliente</th>
+                            <th class="text-right">Prenda</th>
+                            <th class="text-right">Fecha de recoleccion</th>
+                            <th>Observaciones</th>
+                            <th>Pagado</th>
+                            <th>-</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-right">
+                            <td class="text-left">8864</td>
+                            <td class="text-left">Sergio Gutierrez</td>
+                            <td>Pantalon</td>
+                            <td>12/12/2021</td>
+                            <td>pantalon se quedo por x razon</td>
+                            <td>Sin pagar</td>
+                            <td>
+                                <button (click)="verNota()" class="btn btn-primary">
+                                    ver nota
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-5 d-flex justify-content-center w-100" *ngIf="table3">
+    <div class="table-responsive w-100">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Pendientes - En proceso </h6>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nota</th>
+                            <th>Cliente</th>
+                            <th class="text-right">Prenda</th>
+                            <th class="text-right">Fecha de recoleccion</th>
+                            <th>Observaciones</th>
+                            <th>Pagado</th>
+                            <th>-</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-right">
+                            <td class="text-left">8864</td>
+                            <td class="text-left">Sergio Gutierrez</td>
+                            <td>Pantalon</td>
+                            <td>12/12/2021</td>
+                            <td>pantalon se quedo por x razon</td>
+                            <td>Sin pagar</td>
+                            <td><button (click)="verNota()" class="btn btn-primary">
+                                ver nota
+                            </button></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

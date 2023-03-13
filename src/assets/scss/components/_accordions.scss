@@ -1,11 +1,11 @@
 // Accordions
 .accordion {
   >.card {
-    margin-bottom: .15rem;
-    border-radius: .15rem;
+    margin-bottom: .75rem;
+    border-radius: .25rem;
     .card-header {
       background-color: transparent;
-      padding: 0.25rem 0.5rem;
+      padding: 1.3rem 2rem;
       * {
         font-weight: 400;
         font-size: .95rem;        
@@ -41,7 +41,7 @@
     }
     .card-body {
       font-size: .875rem;
-      padding: 0.25rem 0.5rem;
+      padding: 1.3rem 2rem;
       font-weight: 400;
       i {
         font-size: 1.25rem;

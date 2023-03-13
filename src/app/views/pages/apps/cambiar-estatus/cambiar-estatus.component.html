@@ -1,0 +1,140 @@
+<div class="row">
+    <div class="col-md-8 grid-margin stretch-card">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-fluid d-flex justify-content-between">
+                        <div class="col-lg-12 pl-0">
+                            <a routerLink="." class="noble-ui-logo d-block mt-3 logo-light">Clean<span>Zone</span></a>
+                            <p>Cliente</p>
+                        </div>
+                    </div>
+                    <div class="container-fluid mt-5 w-100">
+                        <div class="row">
+                            <div class="col-md-12 ml-auto">
+                                <p style="font-size: 16px; text-align: center; font-weight: bold;">ID</p>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr *ngIf="!dejar">
+                                                <td>5</td>
+                                                <td>Pantalon</td>
+                                                <td class="text-right">$ 14,900.00</td>
+                                                <td class="text-right">
+                                                    amarillo , negro
+                                                </td>
+                                                <td class="text-right">
+                                                    rt
+                                                </td>
+                                                <td class="text-right">
+                                                    <button class="btn btn-primary" (click)="terminarPrenda()"> Terminar </button>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Camiseta</td>
+                                                <td class="text-right">$ 1,788.00</td>
+                                                <td class="text-right">
+                                                    azul
+                                                </td>
+                                                <td class="text-right">
+                                                    sc
+                                                </td>
+                                                <td class="text-right">
+                                                    <button class="btn btn-primary"> Terminar </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="text-bold-800 total">Total</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td style="font-size: 16px; font-weight: bold;" class="text-right total"> $ 1,788.00</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid w-100">
+                        <a class="btn btn-warning float-right mt-4 ml-2">Terminar nota</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive" *ngIf="terminar">
+                    <table class="table">
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    5
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pantalon</td>
+                            </tr>
+                            <tr>
+                                <td>$ 14,900.00</td>
+                            </tr>
+                            <tr>
+                                <td>amarillo , negro</td>
+                            </tr>
+                            <tr>
+                                <td> rt </td>
+                            </tr>
+                            <tr>
+                                <td><button class="btn btn-warning mr-5" (click)="prendaPendiente()"> Pendiente </button>
+                                    <button class="btn btn-primary"> Terminar </button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive" *ngIf="pendiente">
+                    <table class="table">
+                        <tbody>
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary"> <i
+                                            class="feather mdi mdi-plus"></i></button> 5
+                                        <button class="btn btn-sm btn-primary"><i
+                                            class="feather mdi  mdi-minus"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Pantalon</td>
+                                </tr>
+                                <tr>
+                                    <td>$ 14,900.00</td>
+                                </tr>
+                                <tr>
+                                    <td><button (click)="cambiarColor()" class="btn btn-sm {{ btn1 == true ? 'btn-success' : 'btn-light' }}">amarillo</button>
+                                        <button class="btn btn-sm btn-light">negro</button></td>
+                                </tr>
+                                <tr>
+                                    <td> <button (click)="cambiarColor2()" class="btn btn-sm {{ btn2 == true ? 'btn-success' : 'btn-light' }}">rt</button> </td>
+                                </tr>
+                                <tr>
+                                    <td><button class="btn btn-warning" (click)="dejarPendiente()"> Dejar pendiente </button></td>
+                                </tr>
+
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

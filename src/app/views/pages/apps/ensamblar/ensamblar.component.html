@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="container-fluid d-flex justify-content-center w-100">
+        <div class="table-responsive w-100">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Notas sin ensamblar</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th class="text-right">Tipo de pago</th>
+                                <th class="text-right">Fecha</th>
+                                <th>Total</th>
+                                <th class="text-right">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-right">
+                                <td class="text-left">x-persona</td>
+                                <td class="text-left">credito</td>
+                                <td>23/08/2021</td>
+                                <td>$250.00</td>
+                                <td>
+                                    <button type="button" (click)="cambiarEstatus()" class="btn btn-primary">Ensamblar nota</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

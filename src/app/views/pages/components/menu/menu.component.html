@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-body">
+            <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
+        </div>
+    </div>
+</div>
+<div class="row ">
+    <div class="col-md-12">
+        <div class="container">
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/clientes']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Clientes</h4>
+                            <i data-feather="file-plus" class="text-primary icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/usuarios']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Usuarios</h4>
+                            <i data-feather="user-plus" class="text-success icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card">
+                    <div class="card  btn-home" [routerLink]="['/prendas']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Prendas</h4>
+                            <i data-feather="plus-circle" class="text-warning icon-xxl d-block mx-auto my-3"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 stretch-card grid-margin grid-margin-md-0">
+                    <div class="card  btn-home" [routerLink]="['/categorias']">
+                        <div class="card-body">
+                            <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">Categorias</h4>
+                            <i data-feather="folder-plus" appFeatherIcon class="text-warning icon-xxl d-block mx-auto my-3"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

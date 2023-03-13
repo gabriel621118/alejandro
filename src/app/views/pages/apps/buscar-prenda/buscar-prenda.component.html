@@ -1,0 +1,175 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Buscar Prendas</h6>
+
+                <aw-wizard>
+                    <aw-wizard-step stepTitle="Prenda">
+                        <form class="form-inline ml-4 mt-5 my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                        <div class="perfect-scrollbar-example mt-3  p-4" [perfectScrollbar]>
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                      A
+                                    </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <a awNextStep class="list-group-item list-group-item-action" (click)="prenda='Abrigo'">Abrigo</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                      B
+                                    </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                     C
+                                    </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCuatro" aria-expanded="false" aria-controls="collapseCuatro">
+                                     D
+                                    </button>
+                                    </h2>
+                                    <div id="collapseCuatro" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCinco" aria-expanded="false" aria-controls="collapseCinco">
+                                     E
+                                    </button>
+                                    </h2>
+                                    <div id="collapseCinco" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeis" aria-expanded="false" aria-controls="collapseSeis">
+                                     F
+                                    </button>
+                                    </h2>
+                                    <div id="collapseSeis" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSiete" aria-expanded="false" aria-controls="collapseSiete">
+                                     G
+                                    </button>
+                                    </h2>
+                                    <div id="collapseSiete" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aw-wizard-step>
+                    <aw-wizard-step stepTitle="Cantidad y color">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <label for="exampleInputEmail1">Cantidad</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <button (click)="cambiarCantidad(-1)" class="btn btn-outline-secondary" type="button"><i class="feather icon-minus"></i></button>
+                                            </div>
+                                            <input type="number" class="form-control" [(ngModel)]="cantidad" placeholder="Numero de prendas">
+                                            <div class="input-group-append">
+                                                <button (click)="cambiarCantidad(1)" class="btn btn-outline-secondary" type="button"><i class="feather icon-plus"  ></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <label for="exampleInputEmail1">Prenda</label>
+                                        <input type="text" [(ngModel)]="prenda" class="form-control" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Colores</h6>
+                                        <ng-select [items]="people" [multiple]=true [closeOnSelect]="false" [searchable]="false" bindLabel="name" placeholder="Seleccionar colores" [(ngModel)]="selectedPeople">
+                                        </ng-select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-light mr-2" type="button" awPreviousStep>Atras</button>
+                            <button class="btn btn-primary" type="button" (click)="sig()" awNextStep>Continuar</button>
+                        </div>
+                    </aw-wizard-step>
+
+                    <aw-wizard-step stepTitle="Observaciones">
+                        <div class="card">
+                            <div class="card-body">
+                                <div *ngFor="let observa of observaciones" class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" [(ngModel)]="observa.seleccionado" class="custom-control-input" id="{{observa.id}}">
+                                        <label class="custom-control-label" for="{{observa.id}}">{{observa.nombre}}</label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="exampleInputUsername2" class="col-sm-2 col-form-label">Otro:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" [(ngModel)]="observacion" class="form-control" id="exampleInputUsername2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-light mr-2" type="button" awPreviousStep>Atras</button>
+                            <button class="btn btn-success" (click)="agregarPrenda()" type="button">Finalizar</button>
+                        </div>
+                    </aw-wizard-step>
+                </aw-wizard>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- col -->

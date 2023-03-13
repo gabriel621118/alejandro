@@ -40,7 +40,7 @@ $colors: (
 
 
 $theme-colors: (
-  "primary":         #005D9B,
+  "primary":         #727cf5,
   "secondary":       #7987a1,
   "success":         #10b759,
   "info":            #66d1d1,
@@ -223,10 +223,10 @@ $table-inverse-color: color(white);
 // Measurment and property variables
 $border-property: 1px solid $border-color;
 $card-spacing-y: 1.5rem;
-$card-padding-y: 0.5rem;
-$card-padding-x: 0.5rem;
+$card-padding-y: 1.5rem;
+$card-padding-x: 1.5rem;
 $card-spacer-y : .875rem;
-$card-spacer-x : 0.5rem;
+$card-spacer-x : 1.5rem;
 $card-border-radius: .25rem;
 $card-cap-bg: rgba(0,0,0,.0);
 $card-inner-border-radius: 0;

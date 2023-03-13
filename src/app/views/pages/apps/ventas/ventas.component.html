@@ -1,0 +1,590 @@
+<div class="row">
+    <!--  <div class="col-md-12">
+        <div class="card-body">
+            <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
+        </div> 
+    </div>-->
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card ">
+            <div class="card-body">
+                <!--  <div class="row justify-content-center align-items-center text-center mb-3">
+                    <div class="col-md-12">
+                         <button type="button" style="margin-right: 3%;" (click)="menuCambiar('cliente')" class="btn btn-primary">Cliente</button>
+                        <button type="button" style="margin-right: 3%;" (click)="menuCambiar('id')" class="btn btn-primary">Notas</button>
+                        <button type="button" style="margin-right: 3%;" (click)="menuCambiar('prendas')" class="btn btn-primary">Prendas</button>
+                        <button type="button" style="margin-right: 3%;" (click)="menuCambiar('colores')" class="btn btn-primary">Colores</button>
+                    </div>
+                </div>-->
+                <div class="row justify-content-center align-items-center text-center mb-2">
+                    <div class="col-md-12">
+                        <button type="button" (click)="menuCambiar('prendas')" style="margin-right: 2%; color:white" class="btn btn-info btn-sm">Tinto</button>
+                        <button type="button" style="margin-right: 2%; color:white" class="btn btn-info btn-sm">Costura</button>
+                        <button type="button" style="margin-right: 2%; color:white" class="btn btn-info btn-sm">Lav</button>
+                        <button type="button" style="margin-right: 2%; color:white" class="btn btn-info btn-sm">Edre</button>
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center text-center mb-2">
+                    <div class="col-md-12">
+                        <button type="button" (click)="menuCambiar('id')" style="margin-right: 2%; color:white" class="btn btn-primary btn-sm">ID</button>
+                        <button type="button" (click)="openModalPagar(lgModalPagar)" style="margin-right: 2%; color:white" class="btn btn-primary btn-sm">Pagar</button>
+                        <button type="button" style="margin-right: 2%;" class="btn btn-warning btn-sm">Cancelar</button>
+                    </div>
+                </div>
+                <div [ngSwitch]="menu">
+                    <div class="row" *ngSwitchCase="'cliente'">
+                        <div class="form-group col-md-12">
+                            <label for="exampleInputUsername1">Cliente</label>
+                            <div class="input-group">
+                                <div class="carta">
+                                    <ng-select [items]="people" bindLabel="name" bindValue="name" placeholder="clientes..." [(ngModel)]="ventasService.cliente">
+                                    </ng-select>
+                                </div>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" (click)="openLgModal(lgModal)"><i
+                                            class="feather icon-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--  <div class="form-group  col-md-4">
+                                <label for="exampleInputUsername1">Categoria</label>
+                                <div class="input-group">
+        
+                                    <div class="carta">
+                                        <select class="form-control" #t (change)="aPrendas(t.value)">
+                                        <option selected disabled>Selecciona una categoria</option>
+                                        <option *ngFor="let categoria of ventasService.categorias" [value]="categoria.id">
+                                            {{categoria.nombre}}</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>-->
+
+                    </div>
+
+                    <div class="row" *ngSwitchCase="'id'">
+                        <div class="form-group col-md-6 col-6">
+                            <label for="exampleInputEmail1">Id</label>
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                </div>
+                                <input type="text" class="form-control" #idsBox [(ngModel)]="ids" placeholder="Identificador" (keyup.enter)="agregarId(idsBox.value)">
+                                <div class="input-group-append">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 col-6">
+                            <label for="exampleInputEmail1">ticket</label>
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                </div>
+                                <input type="text" class="form-control" #ticketBox [(ngModel)]="ticket" placeholder="Identificador" (keyup.enter)="ventasService.agregarTicket(ticketBox.value, ventasService.selected)">
+                                <div class="input-group-append">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn {{ ventasService.selected == i.id ? 'btn-success' : 'btn-primary' }} mt-1 mr-1" (click)="ventasService.changeIdSelected(i.id)" *ngFor="let i of ventasService.venta"><span
+                                    class="badge {{ ventasService.selected == i.id ? 'success' : 'primary' }}">{{
+                                    i.id}}</span>&nbsp;</button>
+                        </div>
+                    </div>
+                    <div *ngSwitchCase="'prendas'">
+                        <aw-wizard>
+                            <aw-wizard-step>
+                                <div class="row justify-content-center align-items-center text-center" *ngIf="prenda1">
+                                    <div class="col-md-12">
+                                        <button type="button" style="margin-right: 2%;" class="btn btn-secondary btn-sm">A</button>
+                                        <button type="button" style="margin-right: 2%;" class="btn btn-secondary btn-sm">B</button>
+                                        <button type="button" style="margin-right: 2%;" class="btn btn-secondary btn-sm">C</button>
+                                        <button type="button" style="margin-right: 2%;" awNextStep (click)="menuPrenda()" class="btn btn-secondary btn-sm">V</button>
+                                    </div>
+                                </div>
+                            </aw-wizard-step>
+                            <aw-wizard-step>
+
+                                <div class=" justify-content-center align-items-center text-center">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <button type="button" (click)="prenda='Vestido corto'" awNextStep style="margin-right: 2%; margin-top: 2%; margin-top: 2%; font-size: 0.7rem; " class="btn btn-secondary btn-sm">Vestido corto</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido medio</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido Largo</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido fiesta</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido prederia</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido novia</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido xv</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido corto</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido medio</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido Largo</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido fiesta</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido prederia</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido novia</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Vestido xv</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aw-wizard-step>
+                            <aw-wizard-step>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 col-6">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <button (click)="cambiarCantidad(-1)" class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                            </div>
+                                            <input type="number" class="form-control" [(ngModel)]="cantidad" placeholder="Numero de prendas">
+                                            <div class="input-group-append">
+                                                <button (click)="cambiarCantidad(1)" class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-6">
+                                        <input type="text" [(ngModel)]="prenda" class="form-control" disabled>
+                                    </div>
+
+                                </div>
+
+                                <div class="row justify-content-center align-items-center text-center mt-2 mb-2">
+                                    <div class="col-md-12">
+                                        <button type="button" (click)="menuColorObervaciones('Color')" style="margin-right: 2%; color:white" class="btn btn-info btn-sm">Color</button>
+                                        <button type="button" (click)="menuColorObervaciones('Observacion')" style="margin-right: 2%; color:white" class="btn btn-info btn-sm">Observacion</button>
+                                    </div>
+                                </div>
+
+                                <!-- <p>{{this.CantidadColor1}} {{this.color}}</p>
+                                <div class="list-group">
+                                    <a *ngFor="let color of colores" class="list-group-item list-group-item-action"> {{color.cantidad}} .- {{color.nombre}}</a>
+
+                                </div>-->
+
+                                <div [ngSwitch]="menuColorobservacion">
+
+                                    <div class="form-group row" *ngSwitchCase="'Color'">
+
+                                        <div class="mb-2" *ngIf="colorMenuA">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-append">
+                                                            <button (click)="cambiarCantidadColor(-1)" class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                                        </div>
+                                                        <input type="number" class="form-control" [(ngModel)]="cantidadColor" placeholder="Numero de prendas">
+                                                        <div class="input-group-append">
+                                                            <button (click)="cambiarCantidadColor(1)" class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-4">
+                                                    <input type="text" [(ngModel)]="colorMenu" class="form-control" disabled>
+                                                </div>
+                                                <!--  <div class="col-2">
+                                                    <button (click)="agregarNuevoColor(colorMenu,cantidadColor)" class="btn btn-primary btn-sm" type="button">+</button>
+                                                </div> -->
+                                            </div>
+                                        </div>
+
+                                        <div class=" justify-content-center align-items-center text-center">
+                                            <div class="row" *ngIf="true">
+                                                <div class="col-4">
+                                                    <button type="button" (click)="[colorMenu='Azul',colorMenuA=true]" style="margin-right: 2%; margin-top: 2%; margin-top: 2%; font-size: 0.7rem; " class="btn btn-primary btn-sm">Azul</button>
+                                                </div>
+                                                <div class="col-4">
+                                                    <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-warning btn-sm">Amarillo</button>
+                                                </div>
+                                                <div class="col-4">
+                                                    <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-secondary btn-sm">Gris</button>
+                                                </div>
+                                                <div class="col-4">
+                                                    <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-danger btn-sm">Rojo</button>
+                                                </div>
+                                                <div class="col-4">
+                                                    <button type="button" style="margin-right: 2%; margin-top: 2%; font-size: 0.7rem;" class="btn btn-success btn-sm">Verde</button>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card" *ngSwitchCase="'Observacion'">
+                                        <div class="card-body">
+                                            <div *ngFor="let observa of observaciones" style="display: flex;flex-direction: column;" class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" [(ngModel)]="observa.seleccionado" class="custom-control-input" id="{{observa.id}}">
+                                                    <label class="custom-control-label" for="{{observa.id}}">{{observa.nombre}}</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="exampleInputUsername2" class="col-sm-2 col-form-label">Otro:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" [(ngModel)]="observacion" class="form-control" id="exampleInputUsername2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngSwitchDefault>
+                                        <!--Default-->
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-light mr-2" type="button" awPreviousStep>Atras</button>
+                                <button class="btn btn-primary" type="button" (click)="[agregarNuevoColor(colorMenu,cantidadColor),agregarPrenda()]" awResetWizard>Finalizar</button>
+
+                            </aw-wizard-step>
+                            <!--                        <aw-wizard-step>
+                                <div class="row justify-content-center align-items-center text-center">
+                                    <div class="col-md-12">
+                                        <button type="button" style="margin-right: 2%;" class="btn btn-secondary btn-sm">Agregar color</button>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 col-6">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <button (click)="cambiarCantidadColor(-1)" class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                            </div>
+                                            <input type="number" class="form-control" [(ngModel)]="cantidadColor" placeholder="Numero de prendas">
+                                            <div class="input-group-append">
+                                                <button (click)="cambiarCantidadColor(1)" class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-6">
+                                        <ng-select [items]="color" [multiple]=false [closeOnSelect]="true" [searchable]="false" bindLabel="name" placeholder="Seleccionar colores" [(ngModel)]="selectedColor">
+                                        </ng-select>
+                                    </div>
+
+                                </div>
+
+                                <button class="btn btn-light mr-2" type="button" awPreviousStep>Atras</button>
+                                <button class="btn btn-primary" type="button" awNextStep>Continuar</button>
+                            </aw-wizard-step>
+                            <aw-wizard-step>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div *ngFor="let observa of observaciones" style="display: flex;flex-direction: column;" class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" [(ngModel)]="observa.seleccionado" class="custom-control-input" id="{{observa.id}}">
+                                                <label class="custom-control-label" for="{{observa.id}}">{{observa.nombre}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="exampleInputUsername2" class="col-sm-2 col-form-label">Otro:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" [(ngModel)]="observacion" class="form-control" id="exampleInputUsername2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <button class="btn btn-light mr-2" type="button" awPreviousStep>Atras</button>
+                                    <button class="btn btn-success" (click)="agregarPrenda()" awResetWizard type="button">Finalizar</button>
+                                </div>
+                            </aw-wizard-step> -->
+
+
+                        </aw-wizard>
+                    </div>
+                    <div class="row" *ngSwitchCase="'colores'">
+
+                    </div>
+                    <div *ngSwitchDefault>
+                        No disponible
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- TABLAS -->
+    <div style="background-color: #727CF5;" class="text-center mb-1">
+        <p style="color: white;">{{ventasService.cliente}}</p>
+        <p style="color: white;">CALLE XXXX NO. 1111</p>
+        <p style="color: white;">CEL. 33333333</p>
+    </div>
+    <div class="perfect-scrollbar-example" [perfectScrollbar]>
+        <div class=" {{  i.id == ventasService.selected  ? 'seleccionado' : '' }} card" *ngFor="let i of ventasService.venta">
+            <div class="card-body">
+                <div class="encabezado">
+                    <h4 style="text-align: center; font-size: 16px;" class="card-title">{{i.id}}</h4>
+                    <button (click)="ventasService.deleteId(i.id)" type="button" class="btn btn-danger btn-icon">
+                <i data-feather="trash" appFeatherIcon></i>
+            </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+
+                            <th>CANT</th>
+                            <th>NOMBRE</th>
+                            <th>COLORES</th>
+                            <th>OBSERVACIONES</th>
+                            <th>PRECIO</th>
+                            <th>-</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let detalle of ventasService.ventaDetalle">
+
+
+                                <td *ngIf="i.id === detalle.venta_id ">
+                                    <button (click)="cantidadVentas(i.id,1)" class="btn btn-sm btn-primary"> <i
+                                    class="feather mdi mdi-plus"></i></button> {{detalle.cantidad}}
+                                    <button (click)="cantidadVentas(i.id,-1)" class="btn btn-sm btn-primary"><i
+                                    class="feather mdi  mdi-minus"></i></button>
+                                </td>
+                                <td *ngIf="i.id === detalle.venta_id ">{{detalle.nombre}}</td>
+                                <td *ngIf="i.id === detalle.venta_id ">{{detalle.colores}}</td>
+                                <td *ngIf="i.id === detalle.venta_id "><button (click)="openModalAgregarObservacion(detalle.id)" class="btn btn-sm btn-primary"> <i class="feather mdi mdi-plus"></i></button>{{detalle.observaciones}}</td>
+                                <td *ngIf="i.id === detalle.venta_id ">{{ detalle.precio | currency:'MXN' }}</td>
+                                <td *ngIf="i.id === detalle.venta_id ">
+                                    <button type="button" (click)="ventasService.deleteIdDetalle(detalle.id)" class="btn btn-danger btn-icon">
+                                        <i class="feather mdi mdi-backspace"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal agregar cliente -->
+<div class="modal-dialog modal-lg">
+    <ng-template #lgModal let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar cliente</h5>
+            <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+            <div class="card-body">
+                <h6 class="card-title">Nuevo cliente</h6>
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nombre</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Nombre completo">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputMobile" class="col-sm-3 col-form-label">Telefono</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="exampleInputMobile" placeholder="Telefono">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Calle</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Calle">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Colonia</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Colonia">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername1" class="col-sm-3 col-form-label">Lista de precio</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="carta">
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option selected disabled>Selecciona una lista de precio</option>
+                                        <option>Domicilio</option>
+                                        <option>Maquilado</option>
+                                        <option>Mostrador</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Cerrar</button>
+            <button type="button" class="btn btn-primary" (click)="modal.close('by: save button')">Guardar</button>
+        </div>
+    </ng-template>
+</div>
+
+<!--Ticket-->
+<div *ngIf="false" class="col-md-6 grid-margin stretch-card">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="container-fluid d-flex justify-content-between">
+                    <div class="col-lg-12 pl-0">
+                        <a routerLink="." class="noble-ui-logo d-block mt-3 logo-light">Clean<span>Zone</span></a>
+                        <p class="mt-1 mb-1"><b></b></p>
+                        <p>{{ventasService.cliente}}</p>
+                    </div>
+                </div>
+                <div *ngFor="let id of  ventasService.venta">
+                    <p class="cliente">{{id.id}}</p>
+                    <div class="container-fluid mt-2 w-100">
+                        <div class="row">
+                            <div class="col-md-12 ml-auto">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr *ngFor="let detalle of ventasService.ventaDetalle">
+                                                <td>{{detalle.cantidad}} </td>
+                                                <td>{{detalle.nombre}}</td>
+                                                <td class="text-right">{{ detalle.precio | currency:'MXN' }}</td>
+                                                <td class="text-right">
+                                                    <button type="button" (click)="ventasService.deleteIdDetalle(detalle.id)" class="btn btn-danger btn-icon">
+                                                        <i class="feather mdi mdi-backspace"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <!-- <tr>
+
+                                            <td class="text-bold-800 total">Total</td>
+                                            <td></td>
+                                            <td class="text-right total"> $ 1,788.00</td>
+
+                                        </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid w-100">
+                    <a routerLink="." class="btn btn-outline-danger float-right mt-4 btn-icon-text"><i
+                            class="feather mdi mdi-close-box-outline btn-icon-prepend"></i> Cancelar nota</a>
+                    <a routerLink="." style="margin-right: 2%;" class="btn btn-primary float-right mt-4 ml-2 btn-icon-text" (click)="openModalPagar(lgModalPagar)"><i
+                            class="feather mdi mdi-checkbox-marked-outline btn-icon-prepend"></i> Pagar</a>
+                    <a routerLink="." style="margin-right: 2%;" class="btn btn-success float-right mt-4 ml-2 btn-icon-text"> Imprimir ticket</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal agregar prenda -->
+<div class="modal-dialog modal-lg">
+    <ng-template #lgModalAgregarprenda let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar prenda</h5>
+            <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+            <div class="card-body">
+                <h6 class="card-title">Nueva prenda</h6>
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nombre</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Nombre">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleFormControlSelect1" class="col-sm-3 col-form-label">Categoria</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option selected disabled>Selecciona una categoria</option>
+                                <option *ngFor="let categoria of ventasService.categorias">{{categoria.nombre}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Costo</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Costo de servicio">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+            <button type="button" class="btn btn-primary" (click)="modal.close('by: save button')">Save
+                changes</button>
+        </div>
+    </ng-template>
+</div>
+
+<!--Modal pagar-->
+<div class="modal-dialog modal-lg">
+    <ng-template #lgModalPagar let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Pagar</h5>
+            <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="card-body">
+                <p class="text-bold-800 total text-center">Total : $ 1,788.00</p>
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label for="exampleInputUsername1" class="col-sm-3 col-form-label">Forma pago</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="carta">
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option selected disabled>Selecciona una forma de pago</option>
+                                        <option>Pago</option>
+                                        <option>Abono</option>
+                                        <option>Credito</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Cantidad</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Cantiad pagada">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Cerrar</button>
+            <button type="button" class="btn btn-primary" (click)="modal.close('by: save button')">Pagar</button>
+        </div>
+    </ng-template>
+</div>

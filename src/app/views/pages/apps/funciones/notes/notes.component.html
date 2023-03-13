@@ -1,0 +1,87 @@
+<div class="row justify-content-center align-items-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Buscar cliente</h6>
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Fecha</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="exampleInputUsername2" placeholder="cliente">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Cliente</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="cliente">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Pagado</label>
+                        <div class="col-sm-9">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                                <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Sin cobrar</label>
+                        <div class="col-sm-9">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                                <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2" (click)="buscar()">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="table">
+    <div class="container-fluid d-flex justify-content-center w-100">
+        <div class="table-responsive w-100">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Folios del cliente</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Folio</th>
+                                <th>Entregado</th>
+                                <th class="text-right">Pagado</th>
+                                <th class="text-right">Pendiente</th>
+                                <th class="text-right">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-right">
+                                <td class="text-left">8463</td>
+                                <td class="text-left">x</td>
+                                <td>Pagado</td>
+                                <td></td>
+                                <td>
+                                    <button type="button" (click)="verNota()" class="btn btn-primary">Ver nota</button>
+                                </td>
+                            </tr>
+                            <tr class="text-right">
+                                <td class="text-left">8563</td>
+                                <td class="text-left"></td>
+                                <td>sin pagar</td>
+                                <td></td>
+                                <td>
+
+                                    <button type="button" (click)="verNota()" class="btn btn-primary">Ver nota</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

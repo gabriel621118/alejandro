@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-
 
 const routes: Routes = [
   {
@@ -20,18 +18,19 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       }
     ]
   },
 ]
 
 @NgModule({
-  declarations: [LoginComponent, AuthComponent],
+  declarations: [LoginComponent, RegisterComponent, AuthComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    SweetAlert2Module.forRoot(),
     RouterModule.forChild(routes)
   ]
 })
